@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[devblog.am]]></title>
+  <title><![CDATA[dev.AM]]></title>
   <link href="http://devam.herokuapp.com//atom.xml" rel="self"/>
   <link href="http://devam.herokuapp.com//"/>
-  <updated>2013-03-15T21:28:07+02:00</updated>
+  <updated>2013-03-15T22:53:55+02:00</updated>
   <id>http://devam.herokuapp.com//</id>
   <author>
     <name><![CDATA[Anatol Manoila]]></name>
