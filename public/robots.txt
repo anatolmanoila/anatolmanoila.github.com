@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: 
 
-Sitemap: http://devam.herokuapp.com//sitemap.xml 
+Sitemap: http://anatolmanoila.github.com/sitemap.xml 

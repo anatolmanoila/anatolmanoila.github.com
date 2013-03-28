@@ -1,15 +1,15 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://devam.herokuapp.com//blog/archives/</loc>
-        <lastmod>2013-03-15T20:35:25+02:00</lastmod>
+        <loc>http://anatolmanoila.github.com/blog/archives/</loc>
+        <lastmod>2013-03-28T09:21:55+02:00</lastmod>
     </url>
     <url>
-        <loc>http://devam.herokuapp.com//</loc>
-        <lastmod>2013-03-15T20:35:25+02:00</lastmod>
+        <loc>http://anatolmanoila.github.com/</loc>
+        <lastmod>2013-03-28T09:21:55+02:00</lastmod>
     </url>
     <url>
-        <loc>http://devam.herokuapp.com//robots.txt</loc>
-        <lastmod>2013-03-15T20:35:25+02:00</lastmod>
+        <loc>http://anatolmanoila.github.com/robots.txt</loc>
+        <lastmod>2013-03-28T09:21:55+02:00</lastmod>
     </url>
 </urlset>
