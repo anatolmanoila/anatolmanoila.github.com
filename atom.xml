@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[dev.am]]></title>
+  <link href="http://anatolmanoila.github.com/atom.xml" rel="self"/>
+  <link href="http://anatolmanoila.github.com/"/>
+  <updated>2013-03-28T09:48:34+02:00</updated>
+  <id>http://anatolmanoila.github.com/</id>
+  <author>
+    <name><![CDATA[Anatolie Manoila]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+</feed>
