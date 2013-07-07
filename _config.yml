@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://anatolmanoila.github.com
-title: dev.am
-subtitle: Crafting web apps with Ruby on Rails
-author: Anatolie Manoila
+title: macman
+subtitle: Crafting web apps mostly with Rails and Ember.js
+author: Anatol Manoila
 simple_search: http://google.com/search
-description: Ruby on Rails development blog
+description: A blog dedicated on web dev with Rails and Ember.js
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -58,13 +58,13 @@ default_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.
 # ----------------------- #
 
 # Github repositories
-github_user:
+github_user:anatolmanoila
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:
+twitter_user:@anatol_mano
 twitter_tweet_button: true
 
 # Google +1
