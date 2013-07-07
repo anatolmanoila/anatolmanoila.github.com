@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[dev.am]]></title>
-  <link href="http://anatolmanoila.github.com/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Rails | dev.am]]></title>
+  <link href="http://anatolmanoila.github.com/blog/categories/rails/atom.xml" rel="self"/>
   <link href="http://anatolmanoila.github.com/"/>
   <updated>2013-07-07T22:59:33+03:00</updated>
   <id>http://anatolmanoila.github.com/</id>
@@ -18,7 +18,7 @@
     <link href="http://anatolmanoila.github.com/blog/2013/07/07/rspec-the-right-way-part1/"/>
     <updated>2013-07-07T22:30:00+03:00</updated>
     <id>http://anatolmanoila.github.com/blog/2013/07/07/rspec-the-right-way-part1</id>
-    <content type="html"><![CDATA[<p>Let&#8217;s disect RSpec and build a real web app, by taking the recommendations from several developers on how to use RSpec.</p>
+    <content type="html"><![CDATA[<p>Let's disect RSpec and build a real web app, by taking the recommendations from several developers on how to use RSpec.</p>
 ]]></content>
   </entry>
   
