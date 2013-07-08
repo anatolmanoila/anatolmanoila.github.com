@@ -4,7 +4,7 @@
   <title><![CDATA[Category: RSpec | dev.am]]></title>
   <link href="http://anatolmanoila.github.com/blog/categories/rspec/atom.xml" rel="self"/>
   <link href="http://anatolmanoila.github.com/"/>
-  <updated>2013-07-08T10:01:36+03:00</updated>
+  <updated>2013-07-08T15:58:44+03:00</updated>
   <id>http://anatolmanoila.github.com/</id>
   <author>
     <name><![CDATA[Anatol Manoila]]></name>
@@ -18,17 +18,119 @@
     <link href="http://anatolmanoila.github.com/blog/2013/07/07/rspec-the-right-way-part1/"/>
     <updated>2013-07-07T22:30:00+03:00</updated>
     <id>http://anatolmanoila.github.com/blog/2013/07/07/rspec-the-right-way-part1</id>
-    <content type="html"><![CDATA[<p>In this screencast tutorial I want to take the plunge on describing the process how &amp; when to use RSpec applying Behavioral Driven Development technique, by building a complete Rails 4 app. As the example, we'll be building a <em><strong>Comments Dasboard</strong> application that will be used to fetch comments from various blogs that my app knows about and will display a list of comments that people have commented thoughout the day - on the topics that are of interest to me (the user).</em> Thus, I can see all the nicely displayed comments from a single common interface on my desktop or mobile web browser. As it turns out to be, it's a great example of an app that uses many concepts of <em>in-production</em> applications.</p>
+    <content type="html"><![CDATA[<p>In this step by step tutorial I want to take the plunge on describing the process how &amp; when to use RSpec applying Behavioral Driven Development technique, by building a complete Rails 4 app. As the example, we'll be building a <em><strong>Comments Dasboard</strong> application that will be used to fetch comments from various blogs that my app knows about and will display a list of comments that people have commented thoughout the day - on the topics that are of interest to me (the user).</em> Thus, I can see all the nicely displayed comments from a single common interface on my desktop or mobile web browser. As it turns out to be, it's a great example of an app that uses many concepts of <em>in-production</em> applications.</p>
 
 <p>In this blog post, we'll use RSpec in isolation, to implement the <em>first</em> feature of the application.</p>
 
 <h3>Goals for RSpec alone</h3>
 
-<p>✓ Understanding the <em>describe</em> and <em>it</em> methods</p>
+<p>✓ Understanding the <em>describe</em> and <em>it</em> methods <br />
+✓ <em>Implement</em> the first feature: create a Wordpress client and give it a URL</p>
 
-<p>✓ <em>Implement</em> the first feature: create a Wordpress client and give it a URL</p>
+<h4>RSpec Enlightenment</h4>
 
-<p>...</p>
+<p> <em>Thoughts from the experienced developers:</em></p>
+
+<blockquote><p>"RSpec is  primarily about documenting and organizing your code. Although you write words to can be run as code, one of their major purposes is to explain what the implementation code does."</p>
+
+<p>A side effect is that you'll end up with a regression test suite (which detects new bugs in existing code). And your implementation code will be improved by the process of test-first development.</p></blockquote>
+
+<p>BDD is driven by expectations and examples, but it's also driven by failures and errors. Often, an error will tell you what you need to do next in your code to make it work, but it's also crucial to see errors in order to know that the examples you're writing actually work.</p>
+
+<p>It's surprinsigly easy to write examples that do absolutely nothing.</p>
+
+<pre><code>module Wordpress
+   module Comments
+      class Client
+      end
+   end
+end
+
+describe Wordpress::Comments::Client  do
+end
+
+Finished in 0.00004 seconds
+0 examples, 0 failures
+</code></pre>
+
+<blockquote><p>The beauty of Behavioral Driven Development is that you start from the outside actually by using the modules, classes or methods that you write. Instead of designing the implementation first, <strong>you design the external interface</strong>. <em>You use the code as if it already existed. Then you write that implementation code.</em></p></blockquote>
+
+<p>So althought we didn't write any code in the <em>client</em> yet, we can start <em>describing</em> what it will do.
+RSpec provides an <strong>it</strong> method for writing examples against the <em>implementation code</em>. The <em>it</em> method provides a description of what this part of the code will do.</p>
+
+<p>The first part of what this <em>client</em> will need to know is the <em>url</em> of the Wordpress blog it will be dealing with. So that's our first example:</p>
+
+<pre><code>  8 describe Wordpress::Comments::Client  do
+  9    it "stores a URL" do
+ 10
+ 11    end
+ 12 end
+</code></pre>
+
+<p><em>Because RSpec is all about the description and documentation</em>, wording is important. The words RSpec gives us are part of that - <em>describe</em> and <em>it</em>. But the words that, I am using are also important. Use words that communicate what the code does do, not what it should do. So instead of specifying that it <em>should store a URL</em>, I state that it <em>stores a URL</em>.</p>
+
+<p><strong>So what do we need, in order to verify that this class properly stores a URL?</strong>
+First, we'll make an instance of the client, and we'll need to give it a URL to store.
+<em>A sensible part to that is an argument to the <strong>new</strong> method</em>.</p>
+
+<p>Using RSpec involves running the test suite over and over again. It gives you early feedback about the <em>errors</em> in your code, and it <em>guides</em> your development.</p>
+
+<pre><code>    F
+
+    Failures:
+
+      1) Wordpress::Comments::Client stores a URL
+         Failure/Error: client = Wordpress::Comments::Client.new 'http://mashable.com/comments/feed'
+         ArgumentError:
+           wrong number of arguments (1 for 0)
+         # ./spec/lib/wordpress/comments/client_spec.rb:10:in `initialize'
+         # ./spec/lib/wordpress/comments/client_spec.rb:10:in `new'
+         # ./spec/lib/wordpress/comments/client_spec.rb:10
+
+    Finished in 0.00038 seconds
+    1 example, 1 failure
+
+    Failed examples:
+
+    rspec ./spec/lib/wordpress/comments/client_spec.rb:9 # Wordpress::Comments::Client stores a URL
+</code></pre>
+
+<p> Now we see a <strong>runtime error</strong> because we try to use the wordpress comment's client's <em>initialize</em> method called here with new. We gave it an argument but it wasn't expecting that. Ruby's built in implementation of <em>initialize</em> takes no arguments.</p>
+
+<p>Let's write the smallest amount of <em>implementation code</em> to make it to pass. We need an <em>initialze</em> method and it needs to take an <em>url</em> as an argument.</p>
+
+<pre><code>...
+   class Client
+     def initialize url
+     end
+   end
+...
+</code></pre>
+
+<p>Let's top there and run the test again.</p>
+
+<pre><code>1 example, 0 Failures
+</code></pre>
+
+<p>The example ran without any failures. We didn't make any assertions yet but it did successfuly run.</p>
+
+<p><strong>We don't only need a new object, we also want to verify that the data we gave it is actually stored in this client object</strong>.
+A brand new syntax that we'll use is the <em>expect</em> keyword. We will call <em>expect</em> on an <em>object</em>, and then we will tell it what we expect that object to do.</p>
+
+<pre><code>  it "stores a URL" do
+    client = Wordpress::Comments::Client.new 'http://mashable.com/comments/feed'
+    expect(client.url).to eq 'http://mashable.com/comments/feed'
+  end
+</code></pre>
+
+<blockquote><p>  <code>expect(thing).to eq 'result'</code></p>
+
+<h4>An RSpec expectation</h4>
+
+<p>The object being examined is wrapped in <strong>expect</strong>. It's followed by <strong>to</strong> or <code>to_not</code>. A matcher defines the comparison, such as <strong>eq</strong>.
+Finally, the expected result is listed as explicitly as possible.</p></blockquote>
+
+<p>RSpec shipps with a bunch of <em>matchers</em>, that cover most comparisons you might want to do.</p>
 ]]></content>
   </entry>
   
