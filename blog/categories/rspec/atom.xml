@@ -4,7 +4,7 @@
   <title><![CDATA[Category: RSpec | dev.am]]></title>
   <link href="http://anatolmanoila.github.com/blog/categories/rspec/atom.xml" rel="self"/>
   <link href="http://anatolmanoila.github.com/"/>
-  <updated>2013-07-07T22:59:33+03:00</updated>
+  <updated>2013-07-08T10:01:36+03:00</updated>
   <id>http://anatolmanoila.github.com/</id>
   <author>
     <name><![CDATA[Anatol Manoila]]></name>
@@ -14,11 +14,21 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Rspec the right way part1]]></title>
+    <title type="html"><![CDATA[RSPEC the right way]]></title>
     <link href="http://anatolmanoila.github.com/blog/2013/07/07/rspec-the-right-way-part1/"/>
     <updated>2013-07-07T22:30:00+03:00</updated>
     <id>http://anatolmanoila.github.com/blog/2013/07/07/rspec-the-right-way-part1</id>
-    <content type="html"><![CDATA[<p>Let's disect RSpec and build a real web app, by taking the recommendations from several developers on how to use RSpec.</p>
+    <content type="html"><![CDATA[<p>In this screencast tutorial I want to take the plunge on describing the process how &amp; when to use RSpec applying Behavioral Driven Development technique, by building a complete Rails 4 app. As the example, we'll be building a <em><strong>Comments Dasboard</strong> application that will be used to fetch comments from various blogs that my app knows about and will display a list of comments that people have commented thoughout the day - on the topics that are of interest to me (the user).</em> Thus, I can see all the nicely displayed comments from a single common interface on my desktop or mobile web browser. As it turns out to be, it's a great example of an app that uses many concepts of <em>in-production</em> applications.</p>
+
+<p>In this blog post, we'll use RSpec in isolation, to implement the <em>first</em> feature of the application.</p>
+
+<h3>Goals for RSpec alone</h3>
+
+<p>✓ Understanding the <em>describe</em> and <em>it</em> methods</p>
+
+<p>✓ <em>Implement</em> the first feature: create a Wordpress client and give it a URL</p>
+
+<p>...</p>
 ]]></content>
   </entry>
   
